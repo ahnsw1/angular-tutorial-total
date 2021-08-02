@@ -1,0 +1,39 @@
+<h2>{{hero.name | uppercase}} Details</h2> 
+<!-- 
+    1. 
+    uppercasePipe로 표시형식을 지정할 수 있다. 
+    파이프는 문자열의 형식을 지정하거나, 통화 단위를 변경하고, 날짜나 데이터가 표시되는 형식을 변경할 때 사용한다.
+
+    2. 
+    DatePipe: 날짜 데이터를 원하는 형식으로 변환한다. - {{ "" | date}}
+    UpperCasePipe: 문자열을 모두 대문자로 변환한다.- {{ "" | uppercase}}
+    LowerCasePipe: 문자열을 모두 소문자로 변환한다.- {{ "" | lowercase}}
+    CurrencyPipe: 숫자를 통화 단위로 변환한다.- {{ "" | currency: 'EUR':'Euros'}} 
+        1. EUR처럼 추가 형식을 인자로 전달할 수 있다. 
+        2. 인자가 여러개 있으면 콜론으로 구분한다.
+    DecimalPipe: 숫자가 표시되는 자릿수를 지정한다.- {{ "" | decimal}}
+    PercentPipe: 숫자를 백분율로 변환한다.- {{ "" | percent}}
+
+    3. 파이프 체이닝
+    하나를 통과한 결과를 다른 파이프로 전달하는 방식으로 체이닝 할 수 있다.
+
+    4. 커스텀 파이프 만들기
+    Angular 기본 파이프로 원하는 변환작업을 수행할 수 없다면, 커스텀 파이프를 만들어 활용하면 된다. 
+    커스텀 파이프는 기본 파이프와 같은 방식으로 템플릿 표현식에 사용할 수 있으며, 데이터를 화면에 원하는 형태로 표시하기 위해 어떤 값을 받아서 가공하고 반환한다는 점도 같다.
+        1. 클래스를 파이프로 지정하기
+            - 클래스에 @Pipe 데코레이터를 지정하고, 필요한 내용을 메타데이터에 작성하면 클래스를 파이프로 만들 수 있다. 
+              이 때 파이프 클래스 이름은 파스칼 케이스로 작성하며, 메타데이터 name에 해당하는 문자열은 캐멀 케이스로 작성한다.(하이픈 사용 금지)
+              파이프의 name으로 지정한 문자열은 템플릿 표현식에 사용할 수 있다.
+            - NgModule 메타데이터의 declarations 필드에 등록해야 사용할 수 있고, ng generate pipe 명령을 실행하면 자동 등록된다.
+        2. PipeTransform 인터페이스 적용하기
+            - 커스텀 파이프 클래스가 제대로 동작하려면 PipeTransform 인터페이스를 받아서 구현해야 한다. 템플릿 표현식에 커스텀 파이프가 사용되면 Angular가 transform() 메소드를 실행하며,
+              이 때, 인자가 함께 전달되면 transform() 메소드가 실행될 때 인자로 전달된다.
+        3. 예제는 exponential-strength.pipe.ts, power-booster.component.ts 를 확인하면 된다.
+-->
+
+<div>
+    <span>id: </span>{{hero.id}}
+</div>
+<div>
+    <span>name: </span>{{hero.name}}
+</div>
